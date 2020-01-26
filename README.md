@@ -1,4 +1,4 @@
-# docker-binkd
+# binkd
 Raspberry Pi docker image for Binkd
 
 ## Quick Start
