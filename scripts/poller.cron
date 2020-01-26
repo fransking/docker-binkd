@@ -1,0 +1,1 @@
+0 * * * * /binkd/poller.sh /binkd/uplinks.txt > /var/log/binkd/poll.log 2>&1
