@@ -23,6 +23,7 @@ COPY --from=build /binkd/binkd /binkd/
 
 
 VOLUME /mail
+VOLUME /var/log/binkd
 
 EXPOSE 24554
 
