@@ -5,7 +5,8 @@ FROM ${docker_arch}/alpine as build
 ARG arch
 RUN test -n "${arch}"
 
-RUN apk add --update build-base git && \
+RUN apk upgrade --update-cache --available && \
+        apk add --update build-base git && \
         git clone https://github.com/pgul/binkd.git && \
         cd binkd && \
         cp mkfls/unix/* . && \
@@ -15,6 +16,10 @@ RUN apk add --update build-base git && \
 
 
 FROM ${docker_arch}/alpine
+
+RUN apk upgrade --update-cache --available && \
+        apk add openssl && \
+        rm -rf /var/cache/apk/*
 
 RUN mkdir -p /var/run/binkd && mkdir -p /var/log/binkd
 
