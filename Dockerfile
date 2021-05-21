@@ -1,6 +1,6 @@
 ARG docker_arch
 
-FROM ${docker_arch}/alpine as build
+FROM ${docker_arch}/alpine:3.12 as build
 
 ARG arch
 RUN test -n "${arch}"
@@ -15,7 +15,7 @@ RUN apk upgrade --update-cache --available && \
         rm -rf /var/cache/apk/*
 
 
-FROM ${docker_arch}/alpine
+FROM ${docker_arch}/alpine:3.12
 
 RUN apk upgrade --update-cache --available && \
         apk add openssl && \
